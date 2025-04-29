@@ -1,23 +1,39 @@
-# CSS3 Transitions, Animations, and Advanced JavaScript Functions
+1. CSS Animation
+Use @keyframes to animate elements:
 
-## Objectives
+css
+@keyframes bounce {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
 
-Create smooth CSS transitions and animations.
-Use JavaScript functions for dynamic behavior.
-Implement local storage for data persistence.
+button {
+  animation: bounce 0.5s infinite;
+}
 
-## Instructions
-Add CSS animations to elements like buttons or images.
 
->[!NOTE]
-> - Write a JavaScript function that:
-> - Stores and retrieves user preferences using localStorage.
-> - Implements an animation triggered by user actions.
+2. JavaScript: Store & Retrieve User Preferences
+Use localStorage to save user selections:
 
-## Tasks
+js
+function savePreference(key, value) {
+  localStorage.setItem(key, value);
+}
 
-Create a CSS animation.
-Store data in localStorage.
-Apply JavaScript to trigger animations.
+function getPreference(key) {
+  return localStorage.getItem(key);
+}
 
-Happy Coding! 💻✨
+// Example usage
+savePreference("theme", "dark");
+console.log(getPreference("theme")); // Outputs: "dark"
+
+3. Trigger Animation with JavaScriptDynamically trigger an animation on user interaction:
+
+js
+document.getElementById("animate-btn").addEventListener("click", function() {
+  this.style.transition = "transform 0.5s ease-in-out";
+  this.style.transform = "scale(1.2)";
+  setTimeout(() => this.style.transform = "scale(1)", 500);
+});
